@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:lateck/screens/login.dart';
 import 'package:lateck/screens/onBoard.dart';
 
 void main() {
@@ -10,12 +11,14 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(        
-        primarySwatch: Colors.blue,       
-        visualDensity: VisualDensity.adaptivePlatformDensity,
-      ),
-      home: OnboardingScreen(),
-    );
+        title: 'Flutter Demo',
+        theme: ThemeData(
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        home: OnboardingScreen(),
+        routes: {
+          LoginScreen.routeName: (ctx) => LoginScreen(),
+        });
   }
 }

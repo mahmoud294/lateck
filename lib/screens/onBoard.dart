@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:lateck/screens/login.dart';
 
 class OnboardingScreen extends StatefulWidget {
   @override
@@ -7,7 +8,7 @@ class OnboardingScreen extends StatefulWidget {
 }
 
 class _OnboardingScreenState extends State<OnboardingScreen> {
-  final int _numPages = 4;
+  final int _numPages = 3;
   final PageController _pageController = PageController(initialPage: 0);
   int _currentPage = 0;
 
@@ -38,9 +39,7 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
       body: AnnotatedRegion<SystemUiOverlayStyle>(
         value: SystemUiOverlayStyle.light,
         child: Container(
-          decoration: BoxDecoration(
-            color: Colors.blue[900]
-          ),
+          decoration: BoxDecoration(color: Colors.blue[900]),
           child: Padding(
             padding: EdgeInsets.symmetric(vertical: 40.0),
             child: Column(
@@ -49,7 +48,8 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                 Container(
                   alignment: Alignment.centerRight,
                   child: FlatButton(
-                    onPressed: () => print('Skip'),
+                    onPressed: () => Navigator.of(context)
+                        .popAndPushNamed(LoginScreen.routeName),
                     child: Text(
                       'Skip',
                       style: TextStyle(
@@ -76,6 +76,15 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: <Widget>[
                             Center(
+                              child: Text(
+                                'LATECH',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 40,
+                                    fontWeight: FontWeight.w900),
+                              ),
+                            ),
+                            Center(
                               child: Image(
                                 image: AssetImage(
                                   'assets/img/Group 1.png',
@@ -88,10 +97,12 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                             Center(
                               child: Text(
                                 'Let\'s Start',
-                                style: TextStyle(color: Colors.white,fontSize: 24,fontWeight: FontWeight.bold),
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.bold),
                               ),
                             ),
-                           
                           ],
                         ),
                       ),
@@ -110,12 +121,14 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               ),
                             ),
                             SizedBox(height: 30.0),
-                            Text(
-                              'Live your life smarter\nwith us!',
-                            ),
-                            SizedBox(height: 15.0),
-                            Text(
-                              'Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
+                            Center(
+                              child: Text(
+                                'Alot Of Exclusives',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.bold),
+                              ),
                             ),
                           ],
                         ),
@@ -135,37 +148,42 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
                               ),
                             ),
                             SizedBox(height: 30.0),
-                            Text(
-                              'Get a new experience\nof imagination',
-                            ),
-                            SizedBox(height: 15.0),
-                            Text(
-                              'Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
-                            ),
-                          ],
-                        ),
-                      ),
-                      Padding(
-                        padding: EdgeInsets.all(40.0),
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: <Widget>[
                             Center(
-                              child: Image(
-                                image: AssetImage(
-                                  'assets/img/illustration.png',
-                                ),
-                                height: 300.0,
-                                width: 300.0,
+                              child: Text(
+                                'The Best Teck Market',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 24,
+                                    fontWeight: FontWeight.bold),
                               ),
                             ),
-                            SizedBox(height: 30.0),
-                            Text(
-                              'Get a new experience\nof imagination',
+                            SizedBox(height: 20.0),
+                            Container(
+                              height: 80,
+                              width: 300,
+                              child: Padding(
+                                padding: EdgeInsets.all(10),
+                                child: FlatButton(
+                                  child: Text(
+                                    'Register',
+                                    style: TextStyle(
+                                        color: Colors.blue[900], fontSize: 24),
+                                  ),
+                                  onPressed: () {},
+                                  color: Colors.white,
+                                ),
+                              ),
                             ),
-                            SizedBox(height: 15.0),
-                            Text(
-                              'Lorem ipsum dolor sit amet, consect adipiscing elit, sed do eiusmod tempor incididunt ut labore et.',
+                            Center(
+                              child: FlatButton(
+                                child: Text(
+                                  'Sign in',
+                                  style: TextStyle(
+                                      color: Colors.white, fontSize: 24),
+                                ),
+                                onPressed: () => Navigator.of(context)
+                                    .popAndPushNamed(LoginScreen.routeName),
+                              ),
                             ),
                           ],
                         ),
@@ -216,29 +234,6 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
           ),
         ),
       ),
-      bottomSheet: _currentPage == _numPages - 1
-          ? Container(
-              height: 100.0,
-              width: double.infinity,
-              color: Colors.white,
-              child: GestureDetector(
-                onTap: () => print('Get started'),
-                child: Center(
-                  child: Padding(
-                    padding: EdgeInsets.only(bottom: 30.0),
-                    child: Text(
-                      'Get started',
-                      style: TextStyle(
-                        color: Color(0xFF5B16D0),
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                  ),
-                ),
-              ),
-            )
-          : Text(''),
     );
   }
 }
