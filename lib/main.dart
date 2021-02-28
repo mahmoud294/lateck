@@ -1,6 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:lateck/providers/products.dart';
+import 'package:lateck/screens/home.dart';
 import 'package:lateck/screens/login.dart';
 import 'package:lateck/screens/onBoard.dart';
+import 'package:lateck/screens/product-detail.dart';
+import 'package:provider/provider.dart';
 
 void main() {
   runApp(MyApp());
@@ -10,15 +14,17 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return MultiProvider(providers: [ChangeNotifierProvider.value(value: Products(),)],child: MaterialApp(
         title: 'Flutter Demo',
         theme: ThemeData(
           primarySwatch: Colors.blue,
           visualDensity: VisualDensity.adaptivePlatformDensity,
         ),
-        home: OnboardingScreen(),
+        home: HomeScreen(),
         routes: {
           LoginScreen.routeName: (ctx) => LoginScreen(),
-        });
+          ProductDetail.routeName:(ctx)=>ProductDetail()
+        }),)
+    ;
   }
 }

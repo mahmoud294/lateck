@@ -23,6 +23,8 @@ environment:
 dependencies:
   flutter:
     sdk: flutter
+  provider: ^4.3.3
+  http: ^0.12.2
   
 
 
@@ -51,6 +53,7 @@ flutter:
     - assets/img/illustration.png
     - assets/img/illustration-2.png
     - assets/img/illustration-3.png
+    - assets/img/Bose speaker.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
