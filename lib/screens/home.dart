@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:lateck/providers/products.dart';
+import 'package:lateck/screens/cartScreen.dart';
 import 'package:lateck/widgets/allProduct.dart';
 import 'package:lateck/widgets/banner.dart';
 import 'package:provider/provider.dart';
@@ -14,7 +15,15 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(),
+      appBar: AppBar(
+        actions: [
+          IconButton(
+            icon: Icon(Icons.shopping_basket_sharp),
+            onPressed: () =>
+                Navigator.of(context).pushNamed(CartScreen.routeName),
+          )
+        ],
+      ),
       body: Column(
         children: <Widget>[
           Container(child: BannerTop()),

@@ -11,8 +11,18 @@ class Products with ChangeNotifier {
     return [..._allProducts];
   }
 
+  Product selectProduct;
+  String selectedCapacity = '';
+  void selectCap(String cap) {
+    selectedCapacity = '';
+    selectedCapacity =
+        selectProduct.capacity.firstWhere((capas) => capas == cap);
+    notifyListeners();
+  }
+
   Product selectedProduct(String id) {
-    return _allProducts.firstWhere((prod)=> prod.id==id);
+    selectProduct = _allProducts.firstWhere((prod) => prod.id == id);
+    return selectProduct;
   }
 
   Future<void> fetchProduct() async {
@@ -24,7 +34,7 @@ class Products with ChangeNotifier {
       if (extractedData == null) {
         return;
       }
-      final List<Product> loadedProducts = [];      
+      final List<Product> loadedProducts = [];
       extractedData.forEach((prodId, prodData) {
         List<String> cap = [];
         final test = prodData['capacity'] as List<dynamic>;

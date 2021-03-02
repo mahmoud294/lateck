@@ -39,7 +39,7 @@ class ProductItem extends StatelessWidget {
                     fontWeight: FontWeight.bold),
               ),
               subtitle: Text(
-                "${data.price}",
+                "${data.price} \$",
                 style: TextStyle(
                     color: Colors.blue,
                     fontSize: 17,
