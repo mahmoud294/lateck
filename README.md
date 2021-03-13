@@ -1,7 +1,7 @@
 # lateck
 
 A new Flutter project.
-![alt text](https://github.com/mahmoud294/lateck/tree/master/screen%20shots/Screenshot_1614064828.png?raw=true)
+![alt text](https://github.com/mahmoud294/lateck/blob/master/screen%20shots/Screenshot_1614064828.png?raw=true)
 
 ## Getting Started
 
